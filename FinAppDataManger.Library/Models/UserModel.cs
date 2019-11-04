@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinAppDataManger.Library.Models
 {
-    public class UserModel
+    public class UserModel : IUserModel
     {
         public string Id { get; set; }
         public string FirstName { get; set; }

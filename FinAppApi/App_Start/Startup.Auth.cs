@@ -49,7 +49,7 @@ namespace FinAppApi
             // Раскомментируйте приведенные далее строки, чтобы включить вход с помощью сторонних поставщиков входа
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
-            //    clientSecret: "");
+            //   clientSecret: "");
 
             //app.UseTwitterAuthentication(
             //    consumerKey: "",

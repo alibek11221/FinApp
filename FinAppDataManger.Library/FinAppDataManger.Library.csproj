@@ -31,7 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,13 +45,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DapperBase.cs" />
+    <Compile Include="DataAccess\DapperUserData.cs" />
+    <Compile Include="DataAccess\DapperWalletData.cs" />
+    <Compile Include="Internals\DataAccess\IDapperDataAccess.cs" />
+    <Compile Include="Internals\DataAccess\IDataAccess.cs" />
+    <Compile Include="Internals\DataAccess\DapperSqlDataAccess.cs" />
+    <Compile Include="Models\ArticleModel.cs" />
+    <Compile Include="Models\IArticleModel.cs" />
+    <Compile Include="Models\ITransitionModel.cs" />
+    <Compile Include="Models\IUserModel.cs" />
+    <Compile Include="Models\IWalletModel.cs" />
+    <Compile Include="Models\TransitionModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WalletModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DataAccess\" />
-    <Folder Include="Internals\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
