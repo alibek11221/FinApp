@@ -16,7 +16,7 @@ namespace FinAppApi.Controllers
         [HttpGet] 
         public List<IWalletModel> GetWallets()
         {
-            //TODO Get rid of Dapper dependency.
+            //TODO Get rid of Dapper dependency. 
             string id = RequestContext.Principal.Identity.GetUserId();
             DapperWalletData data = new DapperWalletData();
             List<IWalletModel> output = data.GetCurrentUsersWallets(id).ToList();
