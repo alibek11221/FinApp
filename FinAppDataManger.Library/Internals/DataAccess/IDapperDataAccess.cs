@@ -7,6 +7,6 @@ namespace FinAppDataManger.Library.Internals.DataAccess
      public interface IDapperDataAccess : IDataAccess
     {
         void SaveData<T>(string storedProcedure, T parameters, string connectionStringName);
-        IEnumerable<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName);
+        List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName);
     }
 }

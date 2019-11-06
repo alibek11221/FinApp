@@ -10,10 +10,10 @@ namespace FinAppDataManger.Library.DataAccess
 {
     public sealed class DapperWalletData : DapperBase
     {
-        public IEnumerable<IWalletModel> GetCurrentUsersWallets(string id) 
+        public List<WalletModel> GetCurrentUsersWallets(string id) 
         {
             var p = new { Id = id };
-            var output = _dataAccess.LoadData<IWalletModel, dynamic>("sp.Wallets_GetCurrentUsersWallets", p, "FinAppData");
+            var output = _dataAccess.LoadData<WalletModel, dynamic>("spWallets_GetWalletsByUser", p, "FinAppData");
             return output;
         }
         public DapperWalletData()

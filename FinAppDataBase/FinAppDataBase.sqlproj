@@ -64,6 +64,9 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
     <Build Include="dbo\Tables\Wallets.sql" />
-    <Build Include="dbo\StoredProceudres\Users_GetById.sql" />
+    <Build Include="dbo\StoredProceudres\spWallets_GetWalletsByUser.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishLocations\FinAppDataBase.publish.xml" />
   </ItemGroup>
 </Project>

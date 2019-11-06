@@ -13,7 +13,7 @@ namespace FinAppDataManger.Library.DataAccess
         public IUserModel GetUserById(string id)
         {
             var p = new { Id = id };
-            var output = _dataAccess.LoadData<IUserModel, dynamic>("sp.Users_GetById", p, "FinAppData").FirstOrDefault();
+            var output = _dataAccess.LoadData<IUserModel, dynamic>("spUsers_GetById", p, "FinAppData").FirstOrDefault();
             return output;
         }
         public void AddInfoAboutUser(IUserModel user,string firstName, string lastName)
@@ -21,7 +21,7 @@ namespace FinAppDataManger.Library.DataAccess
             user.CreateDate = DateTime.UtcNow;
             user.FirstName = firstName;
             user.LastName = lastName;
-            _dataAccess.SaveData("sp.Users_AddInfo", user, "FinAppData");
+            _dataAccess.SaveData("spUsers_AddInfo", user, "FinAppData");
         }
         public DapperUserData()
         {

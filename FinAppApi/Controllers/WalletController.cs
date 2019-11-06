@@ -14,12 +14,11 @@ namespace FinAppApi.Controllers
     public class WalletController : ApiController
     {
         [HttpGet] 
-        public List<IWalletModel> GetWallets()
+        public List<WalletModel> GetWallets()
         {
-            //TODO Get rid of Dapper dependency. 
             string id = RequestContext.Principal.Identity.GetUserId();
             DapperWalletData data = new DapperWalletData();
-            List<IWalletModel> output = data.GetCurrentUsersWallets(id).ToList();
+            List<WalletModel> output = data.GetCurrentUsersWallets(id);
             return output;
         }
     }

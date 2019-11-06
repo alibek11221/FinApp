@@ -16,7 +16,7 @@ namespace FinAppDataManger.Library.Internals.DataAccess
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
-        public IEnumerable<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
+        public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
         {
             var connectionString = GetDataBaseAddress(connectionStringName);
             using (IDbConnection connection = new SqlConnection(connectionString))

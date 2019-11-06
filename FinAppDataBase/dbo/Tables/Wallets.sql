@@ -4,6 +4,6 @@
 	[UserId] NVARCHAR(256) NOT NULL,
 	[WalletName] NVARCHAR(128) NOT NULL, 
     [CurrentAmount] MONEY NOT NULL DEFAULT 0, 
-    [CreateDate] DATETIME2 NOT NULL
+    [CreateDate] DATETIME2 NOT NULL DEFAULT getutcdate()
 
 )
