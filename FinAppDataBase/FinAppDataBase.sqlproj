@@ -59,5 +59,11 @@
     <Folder Include="dbo" />
     <Folder Include="PublishLocations" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\StoredProceudres" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\Wallets.sql" />
+    <Build Include="dbo\StoredProceudres\Users_GetById.sql" />
   </ItemGroup>
 </Project>
