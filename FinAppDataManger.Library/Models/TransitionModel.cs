@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FinAppDataManger.Library.Models
 {
-    public class TransitionModel : ITransitionModel
+    public class TransitionModel 
     {
-        public IArticleModel Article{ get; set; }
+        public ArticleModel Article { get; set; }
         public decimal Amount { get; set; }
         public DateTime TransitionDate { get; set; }
     }

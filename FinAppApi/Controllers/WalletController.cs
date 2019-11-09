@@ -17,9 +17,17 @@ namespace FinAppApi.Controllers
         public List<WalletModel> GetWallets()
         {
             string id = RequestContext.Principal.Identity.GetUserId();
-            DapperWalletData data = new DapperWalletData();
+            WalletData data = new WalletData();
             List<WalletModel> output = data.GetCurrentUsersWallets(id);
             return output;
+        }
+
+        [HttpPost]
+        public void PostWallet(WalletModel wallet)
+        {
+            WalletData data = new WalletData();
+            string id = RequestContext.Principal.Identity.GetUserId();
+            data.AddWallet(wallet, id);
         }
     }
 }

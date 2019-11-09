@@ -8,16 +8,14 @@ using System.Threading.Tasks;
 
 namespace FinAppDataManger.Library.DataAccess
 {
-    public sealed class DapperWalletData : DapperBase
+    public sealed class UserData
     {
-        public List<WalletModel> GetCurrentUsersWallets(string id) 
+        public UserModel GetUserById(string id)
         {
+            SqlDataAccess sql = new SqlDataAccess();
             var p = new { Id = id };
-            var output = _dataAccess.LoadData<WalletModel, dynamic>("spWallets_GetWalletsByUser", p, "FinAppData");
+            var output = sql.LoadData<UserModel, dynamic>("spUsers_GetById", p, "FinAppData").FirstOrDefault();
             return output;
-        }
-        public DapperWalletData()
-        {
         }
     }
 }

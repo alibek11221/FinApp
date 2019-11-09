@@ -45,19 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\DapperBase.cs" />
-    <Compile Include="DataAccess\DapperUserData.cs" />
-    <Compile Include="DataAccess\DapperWalletData.cs" />
-    <Compile Include="Internals\DataAccess\IDapperDataAccess.cs" />
-    <Compile Include="Internals\DataAccess\IDataAccess.cs" />
-    <Compile Include="Internals\DataAccess\DapperSqlDataAccess.cs" />
+    <Compile Include="DataAccess\UserData.cs" />
+    <Compile Include="DataAccess\WalletData.cs" />
+    <Compile Include="Internals\DataAccess\SqlDataAccess.cs" />
     <Compile Include="Models\ArticleModel.cs" />
-    <Compile Include="Models\IArticleModel.cs" />
-    <Compile Include="Models\ITransitionModel.cs" />
-    <Compile Include="Models\IUserModel.cs" />
-    <Compile Include="Models\IWalletModel.cs" />
     <Compile Include="Models\TransitionModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\WalletDBModel.cs" />
     <Compile Include="Models\WalletModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

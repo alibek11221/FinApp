@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace FinAppDataManger.Library.Models
 {
-    public class UserModel 
+    public class WalletDBModel
     {
-        public string Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmailAddress { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string WalletName { get; set; }
+        public decimal CurrentAmoun { get; set; } = 0M;
         public DateTime CreateDate { get; set; }
     }
 }

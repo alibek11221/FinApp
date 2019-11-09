@@ -14,19 +14,11 @@ namespace FinAppApi.Controllers
     public class UserController : ApiController
     {
         [HttpGet]
-        public IUserModel GetById()
+        public UserModel GetById()
         {
             string id = RequestContext.Principal.Identity.GetUserId();
-            DapperUserData user = new DapperUserData();
+            UserData user = new UserData();
             return user.GetUserById(id);
-        }
-        [HttpPost]
-        public void PopulateInfoAboutUser(string firstName, string lastName)
-        {
-            string id = RequestContext.Principal.Identity.GetUserId();
-            DapperUserData data = new DapperUserData();
-            IUserModel user = data.GetUserById(id);
-            data.AddInfoAboutUser(user, firstName, lastName);
         }
     }
 }
