@@ -45,13 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\TransitionData.cs" />
     <Compile Include="DataAccess\UserData.cs" />
     <Compile Include="DataAccess\WalletData.cs" />
     <Compile Include="Internals\DataAccess\SqlDataAccess.cs" />
     <Compile Include="Models\ArticleModel.cs" />
+    <Compile Include="Models\TransitionDBModel.cs" />
     <Compile Include="Models\TransitionModel.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Models\WalletDBModel.cs" />
     <Compile Include="Models\WalletModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
