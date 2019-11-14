@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using FinAppUi.Library.Api;
 using FinAppUI.Helpers;
 using FinAppUI.ViewModels;
 using System;
@@ -29,7 +30,8 @@ namespace FinAppUI
         {
             _container
                .Singleton<IWindowManager, WindowManager>()
-               .Singleton<IEventAggregator, EventAggregator>();
+               .Singleton<IEventAggregator, EventAggregator>()
+               .Singleton<IAPIHelper, APIHelper>();
            
             GetType()
                .Assembly.GetTypes()

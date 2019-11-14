@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using FinAppUi.Library.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,14 @@ namespace FinAppUI.ViewModels
 {
     public class LoginViewModel : Screen
     {
+        private IAPIHelper _apiHelper;
         private string _userName;
         private string _password;
+
+        public LoginViewModel(IAPIHelper apiHelper)
+        {
+            _apiHelper = apiHelper;
+        }
        
         public string UserName
         {
@@ -22,7 +29,7 @@ namespace FinAppUI.ViewModels
             { 
                 _userName = value;
                 NotifyOfPropertyChange(() => UserName);
-                NotifyOfPropertyChange(() => Password);
+                NotifyOfPropertyChange(() => CanLogIn);
             }
         }
         
@@ -36,7 +43,7 @@ namespace FinAppUI.ViewModels
             {
                 _password = value;
                 NotifyOfPropertyChange(() => Password);
-                NotifyOfPropertyChange(() => UserName);
+                NotifyOfPropertyChange(() => CanLogIn);
             }
         }
 
@@ -52,11 +59,9 @@ namespace FinAppUI.ViewModels
                 return output;
             }
         }
-
-
-        public void LogIn(string userName, string password)
+        public async Task LogIn()
         {
-
+           var result =  await _apiHelper.Authenticate(UserName, Password);
         }
     }
 }
