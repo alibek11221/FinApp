@@ -14,7 +14,5 @@ namespace FinAppApi.Controllers
     [RoutePrefix("api/Transition")]
     public class TransitionController : ApiController
     {
-
-        
     }
 }

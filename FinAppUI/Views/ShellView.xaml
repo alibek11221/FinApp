@@ -1,0 +1,24 @@
+﻿<Window x:Class="FinAppUI.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinAppUI.Views"
+        mc:Ignorable="d"
+        Title="ShellView" Height="450" Width="800">
+    <StackPanel>
+        <Menu>
+            <Menu DockPanel.Dock="Top" FontSize="18">
+                <MenuItem Header="Файл">
+                    <MenuItem x:Name="ExitApplication" Header="Закрыть"/>
+                </MenuItem>
+                <MenuItem Header="_Аккаунт">
+                    <MenuItem x:Name="LogOut" Header="_Log out"/>
+                </MenuItem>
+            </Menu>
+        </Menu>
+        <Grid>
+            <ContentControl x:Name="ActiveItem" Margin="20 5 20 20"/>
+        </Grid>
+    </StackPanel>
+</Window>
