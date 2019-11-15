@@ -32,7 +32,38 @@ namespace FinAppUI.ViewModels
                 NotifyOfPropertyChange(() => CanLogIn);
             }
         }
-        
+
+        public bool IsErrorVisible
+        {
+            get 
+            {
+                bool output = false;
+                if (ErrorMessage?.Length>0)
+                {
+                    output = true;
+                }
+                return output;
+            
+            }
+        }
+
+        private string _errorMessage;
+
+        public string ErrorMessage
+        {
+            get 
+            {
+                return _errorMessage; 
+            }
+            set 
+            {
+                _errorMessage = value;
+                NotifyOfPropertyChange(() => ErrorMessage);
+                NotifyOfPropertyChange(() => IsErrorVisible);
+            }
+        }
+
+
         public string Password
         {
             get 
@@ -61,7 +92,14 @@ namespace FinAppUI.ViewModels
         }
         public async Task LogIn()
         {
-           var result =  await _apiHelper.Authenticate(UserName, Password);
+            try
+            {
+                var result = await _apiHelper.Authenticate(UserName, Password);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
         }
     }
 }
