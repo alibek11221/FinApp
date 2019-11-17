@@ -1,8 +1,8 @@
+using FinAppApi;
+using FinAppApi.App_Start;
+using Swashbuckle.Application;
 using System.Web.Http;
 using WebActivatorEx;
-using FinAppApi;
-using Swashbuckle.Application;
-using FinAppApi.App_Start;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -64,7 +64,7 @@ namespace FinAppApi
                         //c.BasicAuth("basic")
                         //    .Description("Basic HTTP Authentication");
                         //
-						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
+                        // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
                         //c.ApiKey("apiKey")
                         //    .Description("API Key Authentication")
                         //    .Name("apiKey")

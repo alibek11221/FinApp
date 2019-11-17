@@ -1,8 +1,8 @@
+using FinAppApi.Areas.HelpPage.ModelDescriptions;
+using FinAppApi.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using FinAppApi.Areas.HelpPage.ModelDescriptions;
-using FinAppApi.Areas.HelpPage.Models;
 
 namespace FinAppApi.Areas.HelpPage.Controllers
 {

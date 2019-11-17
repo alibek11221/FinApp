@@ -1,9 +1,6 @@
 ﻿using Caliburn.Micro;
 using FinAppUi.Library.Api;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FinAppUI.ViewModels
@@ -18,15 +15,15 @@ namespace FinAppUI.ViewModels
         {
             _apiHelper = apiHelper;
         }
-       
+
         public string UserName
         {
-            get 
-            { 
+            get
+            {
                 return _userName;
             }
-            set 
-            { 
+            set
+            {
                 _userName = value;
                 NotifyOfPropertyChange(() => UserName);
                 NotifyOfPropertyChange(() => CanLogIn);
@@ -35,15 +32,15 @@ namespace FinAppUI.ViewModels
 
         public bool IsErrorVisible
         {
-            get 
+            get
             {
                 bool output = false;
-                if (ErrorMessage?.Length>0)
+                if (ErrorMessage?.Length > 0)
                 {
                     output = true;
                 }
                 return output;
-            
+
             }
         }
 
@@ -51,11 +48,11 @@ namespace FinAppUI.ViewModels
 
         public string ErrorMessage
         {
-            get 
+            get
             {
-                return _errorMessage; 
+                return _errorMessage;
             }
-            set 
+            set
             {
                 _errorMessage = value;
                 NotifyOfPropertyChange(() => ErrorMessage);
@@ -66,9 +63,9 @@ namespace FinAppUI.ViewModels
 
         public string Password
         {
-            get 
+            get
             {
-                return _password; 
+                return _password;
             }
             set
             {
@@ -95,6 +92,8 @@ namespace FinAppUI.ViewModels
             try
             {
                 var result = await _apiHelper.Authenticate(UserName, Password);
+                
+                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
             }
             catch (Exception ex)
             {

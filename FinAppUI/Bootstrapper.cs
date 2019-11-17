@@ -1,12 +1,11 @@
 ﻿using Caliburn.Micro;
 using FinAppUi.Library.Api;
+using FinAppUi.Library.Models;
 using FinAppUI.Helpers;
 using FinAppUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -31,8 +30,9 @@ namespace FinAppUI
             _container
                .Singleton<IWindowManager, WindowManager>()
                .Singleton<IEventAggregator, EventAggregator>()
-               .Singleton<IAPIHelper, APIHelper>();
-           
+               .Singleton<IAPIHelper, APIHelper>()
+               .Singleton<ILoggedInUserModel, LoggedInUserModel>();
+
             GetType()
                .Assembly.GetTypes()
                .Where(type => type.IsClass)
