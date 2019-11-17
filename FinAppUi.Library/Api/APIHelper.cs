@@ -14,7 +14,7 @@ namespace FinAppUi.Library.Api
         private ILoggedInUserModel _loggedInUser;
         public APIHelper(ILoggedInUserModel loggedInUser)
         {
-            InitializeClient();
+             InitializeClient();
             _loggedInUser = loggedInUser;
         }
 
