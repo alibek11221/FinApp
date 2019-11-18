@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -9,8 +10,15 @@ namespace FinAppDataManger.Library.Internals.DataAccess
 {
     internal class SqlDataAccess
     {
+        private readonly IConfiguration _config;
+
+        public SqlDataAccess(IConfiguration config)
+        {
+            _config = config;
+        }
         private string GetConnetcionString(string name)
         {
+            return _config.GetConnectionString(name);
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
         public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
