@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using System.Threading;
 
 namespace FinAppUI.ViewModels
 {
@@ -6,7 +7,11 @@ namespace FinAppUI.ViewModels
     {
         public ShellViewModel()
         {
-            ActivateItem(IoC.Get<LoginViewModel>());
+            ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
+        }
+        public void ExitApplication()
+        {
+            TryCloseAsync();
         }
     }
 }
