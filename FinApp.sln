@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinAppApi", "FinAppApi\FinAppApi.csproj", "{9F5F1FF7-EDD5-4966-9665-1C9B6FF3C511}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinAppDataManger.Library", "FinAppDataManger.Library\FinAppDataManger.Library.csproj", "{59347CFE-7D3A-4F79-9C30-7468FF3B6DB7}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FinAppDataBase", "FinAppDataBase\FinAppDataBase.sqlproj", "{C4A83C09-8025-4C49-BB34-7D5C998247BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinAppUI", "FinAppUI\FinAppUI.csproj", "{239DDA76-1C72-4E09-AF53-4ECCE75BF9F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinAppUI", "FinAppUI\FinAppUI.csproj", "{239DDA76-1C72-4E09-AF53-4ECCE75BF9F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinAppUi.Library", "FinAppUi.Library\FinAppUi.Library.csproj", "{92E35991-194F-4527-BA69-8C1243081A0F}"
 EndProject
@@ -19,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{B2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{D1C57D23-53DD-4CC1-A82E-EDF04BC6C1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinAppApiCore", "FinAppApiCore\FinAppApiCore.csproj", "{1681D64B-AD02-47E6-AA03-8497BEFC3AC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinAppApiCore", "FinAppApiCore\FinAppApiCore.csproj", "{1681D64B-AD02-47E6-AA03-8497BEFC3AC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9F5F1FF7-EDD5-4966-9665-1C9B6FF3C511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F5F1FF7-EDD5-4966-9665-1C9B6FF3C511}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F5F1FF7-EDD5-4966-9665-1C9B6FF3C511}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F5F1FF7-EDD5-4966-9665-1C9B6FF3C511}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59347CFE-7D3A-4F79-9C30-7468FF3B6DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{59347CFE-7D3A-4F79-9C30-7468FF3B6DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59347CFE-7D3A-4F79-9C30-7468FF3B6DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,7 +52,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9F5F1FF7-EDD5-4966-9665-1C9B6FF3C511} = {484F1808-D9E7-47D6-A6EA-0446F929AB31}
 		{59347CFE-7D3A-4F79-9C30-7468FF3B6DB7} = {484F1808-D9E7-47D6-A6EA-0446F929AB31}
 		{C4A83C09-8025-4C49-BB34-7D5C998247BC} = {B2D544F2-6542-43A8-BD9C-5CFF9F5B4FE2}
 		{239DDA76-1C72-4E09-AF53-4ECCE75BF9F2} = {D1C57D23-53DD-4CC1-A82E-EDF04BC6C1CF}
