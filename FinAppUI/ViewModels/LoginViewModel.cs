@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using FinAppUi.Library.Api;
+using FinAppUI.EventModels;
 using System;
 using System.Threading.Tasks;
 
@@ -8,11 +9,13 @@ namespace FinAppUI.ViewModels
     public class LoginViewModel : Screen
     {
         private IAPIHelper _apiHelper;
-        private string _userName;
-        private string _password;
+        private IEventAggregator _events;
+        private string _userName = "aliibbeekk2@gmail.com";
+        private string _password = "Alibek+1";
 
-        public LoginViewModel(IAPIHelper apiHelper)
+        public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events)
         {
+            _events = events;
             _apiHelper = apiHelper;
         }
 
@@ -91,9 +94,10 @@ namespace FinAppUI.ViewModels
         {
             try
             {
+                ErrorMessage = string.Empty;
                 var result = await _apiHelper.Authenticate(UserName, Password);
-                
-                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                await _events.PublishOnUIThreadAsync(new LogOnEvent());
             }
             catch (Exception ex)
             {

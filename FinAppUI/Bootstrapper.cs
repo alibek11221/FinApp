@@ -1,7 +1,9 @@
-﻿using Caliburn.Micro;
+﻿using AutoMapper;
+using Caliburn.Micro;
 using FinAppUi.Library.Api;
 using FinAppUi.Library.Models;
 using FinAppUI.Helpers;
+using FinAppUI.Models;
 using FinAppUI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -24,9 +26,23 @@ namespace FinAppUI
             "Password",
             "PasswordChanged");
         }
+        private IMapper ConfigureAutomapper()
+        {
+            var config = new MapperConfiguration(
+               cfg =>
+               {
+                   cfg.CreateMap<WalletModel, WalletDisplayModel>();
+               });
 
+            var output = config.CreateMapper();
+
+            return output;
+        }
         protected override void Configure()
         {
+            _container.Instance(ConfigureAutomapper());
+            _container.Instance(_container)
+                .PerRequest<IWalletEndPoint, WalletEndPoint>();
             _container
                .Singleton<IWindowManager, WindowManager>()
                .Singleton<IEventAggregator, EventAggregator>()

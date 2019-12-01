@@ -3,7 +3,7 @@
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT WalletName, CurrentAmount, CreateDate
+	SELECT Id, WalletName, CurrentAmount
 	FROM [dbo].[Wallets]
 	WHERE [Wallets].UserId = @Id
 END

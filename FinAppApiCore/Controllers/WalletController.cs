@@ -26,7 +26,7 @@ namespace FinAppApiCore.Controllers
         [HttpGet]
         public List<WalletModel> GetWallets()
         {
-            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);//RequestContext.Principal.Identity.GetUserId();
+            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             WalletData data = new WalletData(_config);
             List<WalletModel> output = data.GetCurrentUsersWallets(id);
             return output;

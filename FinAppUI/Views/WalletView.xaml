@@ -5,25 +5,77 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FinAppUI.Views"
              mc:Ignorable="d" 
-             FontSize="20"
-             d:DesignHeight="450" Background="White" d:DesignWidth="800">
-    <StackPanel Orientation="Vertical">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="1">
-                <Run Text="Вы вошли как : "/>
-                <Run Text="{Binding Login}"/>
-            </TextBlock>
-        </Grid>
-        <Grid>
-            
-        </Grid>
-    </StackPanel>
+             FontSize="24"
+             d:DesignHeight="450" Background="White"  d:DesignWidth="800">
+    <Grid>
+        <!--#region Row and Column Definitions-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--#endregion-->
+        <!--#region Logined as -->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Вы вошли как: " FontSize="25"/>
+            <TextBlock Text="{Binding UserName}" FontSize="25"/>
+        </StackPanel>
+        <!--#endregion-->
+        <!--#region Current wallet info -->
+        <ComboBox x:Name="Wallets" Grid.Row="1" Grid.Column="0" MinWidth="200" Margin="25" SelectedItem="{Binding SelectedWallet}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding WalletName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <StackPanel Grid.Column="0" Orientation="Vertical" Grid.Row="2" Margin="20 0 0 0">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 15 0 15">
+                <TextBlock Text="Сейчас на счету: "/>
+                <TextBlock Text="{Binding CurrentAmount}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 15">
+                <TextBlock Text="Последнаяя операция: "/>
+                <TextBlock Text="{Binding TransitionAmount}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 15" >
+                <TextBlock Text="Дата последней операции: "/>
+                <TextBlock Text="{Binding TranstitionDate}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" >
+                <TextBlock Text="Название последней операции: "/>
+                <TextBlock Text="{Binding ArticleName}"/>
+            </StackPanel>
+        </StackPanel>
+        <!--#endregion-->
+        <!--#region Wallet History -->
+        <ListBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Margin="25 25 25 0" MinHeight="230" MinWidth="200">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding ArticleName}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="Сумма: " FontSize="14"/>
+                                <TextBlock Text="{Binding TransitionAmount}" FontSize="14"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Дата: " FontSize="14"/>
+                                <TextBlock Text="{Binding TransitionDate}" FontSize="14"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <!--#endregion-->
+    </Grid>
 </UserControl>
