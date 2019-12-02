@@ -17,12 +17,18 @@ namespace FinAppUI.ViewModels
         IMapper _mapper;
         IWalletEndPoint _walletEndPoint;
         ILoggedInUserModel _loggedInUser;
-        
-        public WalletViewModel(IMapper mapper, IWalletEndPoint walletEndPoint, ILoggedInUserModel loggedInUser)
+        IWindowManager _manager;
+        TransitionViewModel _transitionVM;
+
+        public WalletViewModel(IMapper mapper, IWalletEndPoint walletEndPoint
+            , ILoggedInUserModel loggedInUser, IWindowManager manager
+            , TransitionViewModel transitionVM)
         {
             _mapper = mapper;
             _walletEndPoint = walletEndPoint;
             _loggedInUser = loggedInUser;
+            _manager = manager;
+            _transitionVM = transitionVM;
         }
 
         private string _userName;
@@ -78,7 +84,6 @@ namespace FinAppUI.ViewModels
             }
         }
 
-
         private BindingList<WalletDisplayModel> _wallets;
 
         public BindingList<WalletDisplayModel> Wallets
@@ -104,6 +109,10 @@ namespace FinAppUI.ViewModels
             SelectedWallet = null;
             CurrentAmount = "";
 
+        }
+        public async void MakeTransition()
+        {
+            await _manager.ShowDialogAsync(_transitionVM);
         }
     }
 }

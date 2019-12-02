@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FinAppUI.Views"
              mc:Ignorable="d" 
-             FontSize="24"
+             FontSize="22"
              d:DesignHeight="450" Background="White"  d:DesignWidth="800">
     <Grid>
         <!--#region Row and Column Definitions-->
@@ -57,7 +57,7 @@
         </StackPanel>
         <!--#endregion-->
         <!--#region Wallet History -->
-        <ListBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Margin="25 25 25 0" MinHeight="230" MinWidth="200">
+        <ListBox Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="25 25 25 0" MinHeight="230" MinWidth="200">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -76,6 +76,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button x:Name="MakeTransition" Grid.Column="1" Grid.Row="3"
+                Margin="25 10">
+            Провести операцию
+        </Button>
         <!--#endregion-->
     </Grid>
 </UserControl>

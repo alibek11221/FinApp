@@ -10,16 +10,15 @@ namespace FinAppUI.ViewModels
     public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>
     {
         private IEventAggregator _events;
-        private WalletViewModel _walletVM;
         private ILoggedInUserModel _user;
         private IAPIHelper _apiHelper;
-        public ShellViewModel(LoginViewModel loginViewModel, IEventAggregator events, WalletViewModel walletVM,
+
+        public ShellViewModel(IEventAggregator events,
            ILoggedInUserModel user, IAPIHelper apiHelper)
         {
             _events = events;
             _user = user;
             _apiHelper = apiHelper;
-            _walletVM = walletVM;
             events.SubscribeOnPublishedThread(this);
             ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
         }
@@ -39,17 +38,26 @@ namespace FinAppUI.ViewModels
                 return output;
             }
         }
+        public async Task AddArticleAsync()
+        {
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            await ActivateItemAsync(IoC.Get<ArticleViewModel>(), new CancellationToken());
+        }
+        public async Task ShowWalletsAsync()
+        {
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            await ActivateItemAsync(IoC.Get<WalletViewModel>(), new CancellationToken());
+        }
         public async Task LogOutAsync()
         {
             _user.ResetUserModel();
-            _walletVM.Refresh();
             _apiHelper.LogOffUser();
             await ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
             NotifyOfPropertyChange(() => IsLoggedIn);
         }
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(_walletVM, cancellationToken);
+            await ActivateItemAsync(IoC.Get<WalletViewModel>(), cancellationToken);
             NotifyOfPropertyChange(() => IsLoggedIn);
         }
     }

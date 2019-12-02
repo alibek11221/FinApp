@@ -5,19 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinAppUI.Views"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        Title="ShellView" Height="550" Width="800">
     <StackPanel>
-        <Menu>
-            <Menu DockPanel.Dock="Top" FontSize="18">
-                <MenuItem Header="Файл">
-                    <MenuItem x:Name="ExitApplication" Header="Закрыть"/>
-                </MenuItem>
-                <MenuItem Header="_Аккаунт" Visibility="{Binding IsLoggedIn
+        <Menu DockPanel.Dock="Top" FontSize="18">
+            <MenuItem Header="Файл">
+                <MenuItem x:Name="ExitApplication" Header="Закрыть"/>
+            </MenuItem>
+            <MenuItem Header="_Аккаунт" Visibility="{Binding IsLoggedIn
                 , Converter={StaticResource BooleanToVisibilityConverter}
                 , FallbackValue=Collapsed}">
-                    <MenuItem x:Name="LogOut" Header="Выйти"/>
-                </MenuItem>
-            </Menu>
+                <MenuItem x:Name="LogOut" Header="Выйти"/>
+            </MenuItem>
+            <MenuItem Header="Кошелек" x:Name="ShowWallets" Visibility="{Binding IsLoggedIn
+                , Converter={StaticResource BooleanToVisibilityConverter}
+                , FallbackValue=Collapsed}">
+            </MenuItem>
+            <MenuItem Header="_Статьи"                  
+                      Visibility="{Binding IsLoggedIn
+                , Converter={StaticResource BooleanToVisibilityConverter}
+                , FallbackValue=Collapsed}">
+                <MenuItem Header="_Добавить" x:Name="AddArticle"/>
+            </MenuItem>
         </Menu>
         <Grid>
             <ContentControl x:Name="ActiveItem" Margin="20 5 20 20"/>
