@@ -33,7 +33,7 @@ namespace FinAppApiCore.Controllers
         }
 
         [HttpPost]
-        public void PostWallet(WalletModel wallet)
+        public void AddWallet(WalletModel wallet)
         {
             WalletData data = new WalletData(_config);
             string id = User.FindFirstValue(ClaimTypes.NameIdentifier);

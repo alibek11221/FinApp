@@ -38,5 +38,6 @@ namespace FinAppDataManger.Library.Internals.DataAccess
                 connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
             }
         }
+
     }
 }
