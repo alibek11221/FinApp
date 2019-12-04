@@ -19,7 +19,6 @@ namespace FinAppDataManger.Library.Internals.DataAccess
         private string GetConnetcionString(string name)
         {
             return _config.GetConnectionString(name);
-            //return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
         public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
         {

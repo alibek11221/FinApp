@@ -4,8 +4,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-FinAppApiCore-16E5A3D9-F19F-4B5A-836E-3A4CDF0B9069</UserSecretsId>
   </PropertyGroup>
-
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0-preview3.19555.2" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0-preview3.19555.2" />
@@ -23,8 +21,6 @@
     <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
   </ItemGroup>
-
-
   <ItemGroup>
     <ProjectReference Include="..\FinAppDataManger.Library\FinAppDataManger.Library.csproj" />
   </ItemGroup>

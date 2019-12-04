@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FinAppDataManger.Library.DataAccess;
 using FinAppDataManger.Library.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -29,8 +30,16 @@ namespace FinAppApiCore.Controllers
         [HttpPost]
         public void AddArticle(ArticleModel article)
         {
-            ArticleData data = new ArticleData(_config);
-            data.AddArticle(article);
+            try
+            {
+                ArticleData data = new ArticleData(_config);
+                data.AddArticle(article);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
     }
 }

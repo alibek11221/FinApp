@@ -42,7 +42,8 @@ namespace FinAppUI
         {
             _container.Instance(ConfigureAutomapper());
             _container.Instance(_container)
-                .PerRequest<IWalletEndPoint, WalletEndPoint>();
+                .PerRequest<IWalletEndPoint, WalletEndPoint>()
+                .PerRequest<IArticleEndPoint, ArticleEndPoint>();
             _container
                .Singleton<IWindowManager, WindowManager>()
                .Singleton<IEventAggregator, EventAggregator>()

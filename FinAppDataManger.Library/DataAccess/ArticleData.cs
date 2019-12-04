@@ -33,7 +33,7 @@ namespace FinAppDataManger.Library.DataAccess
             }
             else
             {
-                throw new Exception("Такая статья уже существует");
+
             }
         }
         private bool IfArticleDoesNotExists(string nametocheck)
