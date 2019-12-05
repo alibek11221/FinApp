@@ -31,6 +31,19 @@ namespace FinAppUI.ViewModels
             _transitionVM = transitionVM;
         }
 
+        public bool CanMakeTransition
+        {
+            get
+            {
+                bool output = false;
+                if (SelectedWallet != null)
+                {
+                    output = true;
+                }
+                return  output;
+            }
+        }
+
         private string _userName;
 
         public string UserName
@@ -65,6 +78,7 @@ namespace FinAppUI.ViewModels
                 _selectedwallet = value;
                 
                 NotifyOfPropertyChange(() => SelectedWallet);
+                NotifyOfPropertyChange(() => CanMakeTransition);
                 CurrentAmount = SelectedWallet?.CurrentAmount.ToString("C");
             }
         }
@@ -93,6 +107,7 @@ namespace FinAppUI.ViewModels
             {
                 _wallets = value;
                 NotifyOfPropertyChange(() => Wallets);
+
             }
         }
 
@@ -112,7 +127,7 @@ namespace FinAppUI.ViewModels
         }
         public async void MakeTransition()
         {
-            await _manager.ShowDialogAsync(_transitionVM);
+          await _manager.ShowDialogAsync(_transitionVM);
         }
     }
 }

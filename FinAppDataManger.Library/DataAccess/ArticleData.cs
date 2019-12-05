@@ -33,7 +33,7 @@ namespace FinAppDataManger.Library.DataAccess
             }
             else
             {
-
+                
             }
         }
         private bool IfArticleDoesNotExists(string nametocheck)
