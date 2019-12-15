@@ -8,5 +8,6 @@ namespace FinAppUi.Library.Api
     {
         Task<List<WalletModel>> GetAll();
         Task Add(WalletModel wallet);
+        Task Remove(WalletModel wallet);
     }
 }

@@ -23,7 +23,7 @@
                 , Converter={StaticResource BooleanToVisibilityConverter}
                 , FallbackValue=Collapsed}">
                 </MenuItem>
-                <MenuItem Header="_Добавить" x:Name="AddWallet" Visibility="{Binding IsLoggedIn
+                <MenuItem Header="_Добавить/Удалить" x:Name="AddWallet" Visibility="{Binding IsLoggedIn
                 , Converter={StaticResource BooleanToVisibilityConverter}
                 , FallbackValue=Collapsed}">
                 </MenuItem>

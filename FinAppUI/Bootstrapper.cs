@@ -32,6 +32,7 @@ namespace FinAppUI
                cfg =>
                {
                    cfg.CreateMap<WalletModel, WalletDisplayModel>();
+                   cfg.CreateMap<WalletDisplayModel, WalletModel>();
                });
 
             var output = config.CreateMapper();

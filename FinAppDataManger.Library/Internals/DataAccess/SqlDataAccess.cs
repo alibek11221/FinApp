@@ -37,6 +37,14 @@ namespace FinAppDataManger.Library.Internals.DataAccess
                 connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
             }
         }
+        public void RemoveData<T>(string storedProcedure, T parameters, string connectionStringName)
+        {
+            string connectionString = GetConnetcionString(connectionStringName);
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
 
     }
 }

@@ -14,12 +14,15 @@ namespace FinAppUI.ViewModels
 {
     public class WalletViewModel : Screen
     {
-        IMapper _mapper;
-        IWalletEndPoint _walletEndPoint;
-        ILoggedInUserModel _loggedInUser;
-        IWindowManager _manager;
-        TransitionViewModel _transitionVM;
-
+        private readonly IMapper _mapper;
+        private readonly IWalletEndPoint _walletEndPoint;
+        private readonly ILoggedInUserModel _loggedInUser;
+        private readonly IWindowManager _manager;
+        private readonly TransitionViewModel _transitionVM;
+        private  string _userName;
+        private     WalletDisplayModel _selectedwallet;
+        private  string _currentAmount;
+        private  BindingList<WalletDisplayModel> _wallets;
         public WalletViewModel(IMapper mapper, IWalletEndPoint walletEndPoint
             , ILoggedInUserModel loggedInUser, IWindowManager manager
             , TransitionViewModel transitionVM)
@@ -30,7 +33,6 @@ namespace FinAppUI.ViewModels
             _manager = manager;
             _transitionVM = transitionVM;
         }
-
         public bool CanMakeTransition
         {
             get
@@ -43,8 +45,6 @@ namespace FinAppUI.ViewModels
                 return  output;
             }
         }
-
-        private string _userName;
         public string UserName
         {
             get 
@@ -57,15 +57,12 @@ namespace FinAppUI.ViewModels
                 NotifyOfPropertyChange(() => UserName);
             }
         }
-
-        protected async override void OnViewLoaded(object view)
+        protected override async void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
             await LoadWallets();
             UserName = _loggedInUser?.FirstName;
         }
-        private WalletDisplayModel _selectedwallet;
-
         public WalletDisplayModel SelectedWallet
         {
             get 
@@ -81,8 +78,6 @@ namespace FinAppUI.ViewModels
                 CurrentAmount = SelectedWallet?.CurrentAmount.ToString("C");
             }
         }
-        private string _currentAmount;
-
         public string CurrentAmount
         {
             get 
@@ -95,9 +90,6 @@ namespace FinAppUI.ViewModels
                 NotifyOfPropertyChange(() => CurrentAmount);
             }
         }
-
-        private BindingList<WalletDisplayModel> _wallets;
-
         public BindingList<WalletDisplayModel> Wallets
         {
             get { return _wallets; }
@@ -119,7 +111,6 @@ namespace FinAppUI.ViewModels
             {
                 Wallets = new BindingList<WalletDisplayModel>();
             }
-            
         }
         public async Task MakeTransitionAsync()
         {

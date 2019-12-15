@@ -1,4 +1,5 @@
-﻿using FinAppUi.Library.Models;
+﻿using FinAppDataManger.Library.Extencions;
+using FinAppUi.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -14,7 +15,6 @@ namespace FinAppUi.Library.Api
         {
             _aPIHelper = aPIHelper;
         }
-
         public async Task<List<WalletModel>> GetAll()
         {
             using (HttpResponseMessage response = await _aPIHelper.ApiClient.GetAsync("api/Wallet"))
@@ -33,6 +33,11 @@ namespace FinAppUi.Library.Api
         public async Task Add(WalletModel wallet)
         {
             HttpResponseMessage httpResponse = await _aPIHelper.ApiClient.PostAsJsonAsync("api/Wallet", wallet);
+            httpResponse.Dispose();
+        }
+        public async Task Remove(WalletModel wallet)
+        {
+            HttpResponseMessage httpResponse = await _aPIHelper.ApiClient.DeleteAsJsonAsync("api/Wallet", wallet);
             httpResponse.Dispose();
         }
     }

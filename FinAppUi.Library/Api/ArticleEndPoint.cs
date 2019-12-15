@@ -10,12 +10,10 @@ namespace FinAppUi.Library.Api
     public class ArticleEndPoint : IArticleEndPoint
     {
         private readonly IAPIHelper _aPIHelper;
-
         public ArticleEndPoint(IAPIHelper aPIHelper)
         {
             _aPIHelper = aPIHelper;
         }
-
         public async Task<List<ArticleModel>> GetArticlesAsync()
         {
             using (HttpResponseMessage response = await _aPIHelper.ApiClient.GetAsync("api/Article"))

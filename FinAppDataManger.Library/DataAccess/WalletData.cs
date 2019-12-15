@@ -49,5 +49,11 @@ namespace FinAppDataManger.Library.DataAccess
             var output = sql.LoadData<WalletModel, dynamic>("spWallets_GetWalletsByUser", p, "FinAppData");
             return output;
         }
+        public void DeleteWallet(WalletModel wallet, string userId)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+            var p = new { WalletName = wallet.WalletName, UserId = userId };
+            sql.RemoveData("spWallets_RemoweWallet", p, "FinAppData");
+        }
     }
 }
