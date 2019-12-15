@@ -48,6 +48,11 @@ namespace FinAppUI.ViewModels
             NotifyOfPropertyChange(() => IsLoggedIn);
             await ActivateItemAsync(IoC.Get<WalletViewModel>(), new CancellationToken());
         }
+        public async Task AddWalletAsync()
+        {
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            await ActivateItemAsync(IoC.Get<AddWalletViewModel>(), new CancellationToken());
+        }
         public async Task LogOutAsync()
         {
             _user.ResetUserModel();

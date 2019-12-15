@@ -33,17 +33,10 @@ namespace FinAppUi.Library.Api
         }
         public async Task PostArticle(ArticleModel article)
         {
-            using (HttpResponseMessage response = await _aPIHelper.ApiClient.PostAsJsonAsync("api/Article", article))
-            {
-                if (response.IsSuccessStatusCode)
-                {
 
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
+            HttpResponseMessage response = await _aPIHelper.ApiClient.PostAsJsonAsync("api/Article", article);
+            response.Dispose();
+
+        } 
     }
 }

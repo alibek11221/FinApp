@@ -45,7 +45,6 @@ namespace FinAppUI.ViewModels
         }
 
         private string _userName;
-
         public string UserName
         {
             get 
@@ -82,7 +81,6 @@ namespace FinAppUI.ViewModels
                 CurrentAmount = SelectedWallet?.CurrentAmount.ToString("C");
             }
         }
-
         private string _currentAmount;
 
         public string CurrentAmount
@@ -107,25 +105,23 @@ namespace FinAppUI.ViewModels
             {
                 _wallets = value;
                 NotifyOfPropertyChange(() => Wallets);
-
             }
         }
-
-
         private async Task LoadWallets()
         {
             var walletsList = await _walletEndPoint.GetAll();
-            var wallets = _mapper.Map<List<WalletDisplayModel>>(walletsList);
-            Wallets = new BindingList<WalletDisplayModel>(wallets);
+            if (!(walletsList==null))
+            {
+                var wallets = _mapper.Map<List<WalletDisplayModel>>(walletsList);
+                Wallets = new BindingList<WalletDisplayModel>(wallets);
+            }
+            else
+            {
+                Wallets = new BindingList<WalletDisplayModel>();
+            }
+            
         }
-        public void ResetForm()
-        {
-            UserName = "";
-            SelectedWallet = null;
-            CurrentAmount = "";
-
-        }
-        public async void MakeTransition()
+        public async Task MakeTransitionAsync()
         {
           await _manager.ShowDialogAsync(_transitionVM);
         }

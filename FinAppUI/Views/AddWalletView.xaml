@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="FinAppUI.Views.AddWalletView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FinAppUI.Views"
+             mc:Ignorable="d" 
+             FontSize="26"
+             d:DesignHeight="450" Background="White" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Название :" Grid.Column="1" Grid.Row="1" Margin="0 10 10 5"/>
+        <TextBlock Text="Баланс :" Grid.Column="1" Grid.Row="2" Margin="0 10 10 5"/>
+        <TextBox x:Name="WalletName" Grid.Row="1" Grid.Column="2" MinWidth="200" Margin="0 10"/>
+        <TextBox x:Name="CurrentAmount" Grid.Row="2" Grid.Column="2" MinWidth="200" Margin="0 10"/>
+        <Button x:Name="AddWallet" Content="Добавить кошелек" Grid.Column="2" Grid.RowSpan="1" Grid.Row="3" MaxHeight="50"/>
+    </Grid>
+</UserControl>

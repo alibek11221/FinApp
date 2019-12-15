@@ -37,7 +37,6 @@ namespace FinAppUI.ViewModels
                     output = true;
                 }
                 return output;
-
             }
         }
         private string _errorMessage;
@@ -58,15 +57,18 @@ namespace FinAppUI.ViewModels
 
         public async Task AddArticleAsync()
         {
+            _articleModel.ArticleName = this.ArticleName;
             try
             {
-                _articleModel.ArticleName = this.ArticleName;
                 await _article.PostArticle(_articleModel);
-                this.ArticleName = "";            
             }
             catch (Exception ex)
             {
                 ErrorMessage = ex.Message;
+            }
+            finally
+            {
+                this.ArticleName = "";
             }
         }
     }

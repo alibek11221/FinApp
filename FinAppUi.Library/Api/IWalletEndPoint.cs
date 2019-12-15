@@ -7,5 +7,6 @@ namespace FinAppUi.Library.Api
     public interface IWalletEndPoint
     {
         Task<List<WalletModel>> GetAll();
+        Task Add(WalletModel wallet);
     }
 }

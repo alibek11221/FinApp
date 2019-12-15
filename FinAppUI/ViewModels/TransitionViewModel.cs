@@ -12,22 +12,23 @@ namespace FinAppUI.ViewModels
 {
     public class TransitionViewModel : Screen
     {
-        private int _amount;
         private readonly IArticleEndPoint _articleEndPoint;
-
+        public TransitionViewModel(IArticleEndPoint articleEndPoint)
+        {
+            _articleEndPoint = articleEndPoint;
+        }
+        private int _amount;
         public int Amount
         {
             get { return _amount; }
             set { _amount = value; }
         }
-
         protected async override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
             await LoadArticles();
         }
         private BindingList<ArticleModel> _articles;
-
         public BindingList<ArticleModel> Articles
         {
             get { return _articles; }
@@ -37,17 +38,14 @@ namespace FinAppUI.ViewModels
                 NotifyOfPropertyChange(() => Articles);
             }
         }
-
-
         private async Task LoadArticles()
         {
             List<ArticleModel> articlesList = await _articleEndPoint.GetArticlesAsync();
             Articles = new BindingList<ArticleModel>(articlesList);
         }
-
-        public TransitionViewModel(IArticleEndPoint articleEndPoint)
+        public async Task MakeTransitionAsync()
         {
-            _articleEndPoint = articleEndPoint;
+            
         }
     }
 }

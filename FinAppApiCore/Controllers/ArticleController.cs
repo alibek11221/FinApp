@@ -30,10 +30,14 @@ namespace FinAppApiCore.Controllers
         [HttpPost]
         public void AddArticle(ArticleModel article)
         {
-
             ArticleData data = new ArticleData(_config);
-            data.AddArticle(article);
-
+            if (data.AddArticle(article))
+            {
+            }
+            else
+            {
+            }
+            
         }
     }
 }

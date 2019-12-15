@@ -13,10 +13,10 @@ namespace FinAppDataManger.Library.DataAccess
         {
             _config = config;
         }
-        public List<TransitionModel> GetTransitionsByWallet(int WalletId)
+        public List<TransitionModel> GetTransitionsByWallet(string userId,int WalletId)
         {
             SqlDataAccess sql = new SqlDataAccess(_config);
-            var p = new { WalletId = WalletId };
+            var p = new { UserId = userId, WalletId = WalletId };
             var outuput = sql.LoadData<TransitionModel, dynamic>("spTransitionsGetByWallet", p, "FinAppData");
             return outuput;
         }

@@ -16,9 +16,17 @@
                 , FallbackValue=Collapsed}">
                 <MenuItem x:Name="LogOut" Header="Выйти"/>
             </MenuItem>
-            <MenuItem Header="Кошелек" x:Name="ShowWallets" Visibility="{Binding IsLoggedIn
+            <MenuItem Header="_Кошельки" Visibility="{Binding IsLoggedIn
                 , Converter={StaticResource BooleanToVisibilityConverter}
                 , FallbackValue=Collapsed}">
+                <MenuItem Header="_Показать" x:Name="ShowWallets" Visibility="{Binding IsLoggedIn
+                , Converter={StaticResource BooleanToVisibilityConverter}
+                , FallbackValue=Collapsed}">
+                </MenuItem>
+                <MenuItem Header="_Добавить" x:Name="AddWallet" Visibility="{Binding IsLoggedIn
+                , Converter={StaticResource BooleanToVisibilityConverter}
+                , FallbackValue=Collapsed}">
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="_Статьи"                  
                       Visibility="{Binding IsLoggedIn

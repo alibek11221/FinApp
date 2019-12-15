@@ -30,5 +30,10 @@ namespace FinAppUi.Library.Api
                 }
             }
         }
+        public async Task Add(WalletModel wallet)
+        {
+            HttpResponseMessage httpResponse = await _aPIHelper.ApiClient.PostAsJsonAsync("api/Wallet", wallet);
+            httpResponse.Dispose();
+        }
     }
 }

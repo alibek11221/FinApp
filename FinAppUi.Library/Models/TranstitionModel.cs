@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace FinAppDataManger.Library.Models
+namespace FinAppUi.Library.Models
 {
-    public class TransitionModel
+    public class TranstitionModel
     {
-        public int Id { get; set; }
         public ArticleModel Article { get; set; }
         public decimal Amount { get; set; }
         public DateTime TransitionDate { get; set; }

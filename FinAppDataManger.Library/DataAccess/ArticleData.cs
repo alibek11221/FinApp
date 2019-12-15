@@ -13,36 +13,35 @@ namespace FinAppDataManger.Library.DataAccess
     public class ArticleData
     {
         private readonly IConfiguration _config;
-
+        private readonly SqlDataAccess _sql;
         public ArticleData(IConfiguration config)
         {
             _config = config;
+            _sql = new SqlDataAccess(_config);
         }
         public List<ArticleModel> GetAll()
         {
-            SqlDataAccess sql = new SqlDataAccess(_config);
-            var output = sql.LoadData<ArticleModel, dynamic>("spArticles_GetAll", new { }, "FinAppData");
+            var output = _sql.LoadData<ArticleModel, dynamic>("spArticles_GetAll", new { }, "FinAppData");
             return output;
         }
-        public void AddArticle(ArticleModel article)
+        public bool AddArticle(ArticleModel article)
         {
-            SqlDataAccess data = new SqlDataAccess(_config);
-            if (IfArticleDoesNotExists(article.ArticleName))
+            if (ArticleDoesNotExist(article.ArticleName))
             {
-                data.SaveData("spArticles_AddAritcle", article, "FinAppData");
+                _sql.SaveData("spArticles_AddAritcle", article, "FinAppData");
+                return true;
             }
             else
             {
-                
+                return false;
             }
         }
-        private bool IfArticleDoesNotExists(string nametocheck)
+        private bool ArticleDoesNotExist(string nametocheck)
         {
-            SqlDataAccess sql = new SqlDataAccess(_config);
             var p = new DynamicParameters();
             p.Add("@ArticleName", nametocheck);
             p.Add("@Out", DbType.Int32, direction: ParameterDirection.Output);
-            sql.LoadData<dynamic, dynamic>("spArticles_ArticleLookUp", p, "FinAppData");
+            _sql.LoadData<dynamic, dynamic>("spArticles_ArticleLookUp", p, "FinAppData");
             var retval = p.Get<int>("@Out");
             if (retval == 0)
             {

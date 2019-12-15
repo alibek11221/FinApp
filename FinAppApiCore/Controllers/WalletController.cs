@@ -36,8 +36,8 @@ namespace FinAppApiCore.Controllers
         public void AddWallet(WalletModel wallet)
         {
             WalletData data = new WalletData(_config);
-            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            data.AddWallet(wallet, id);
+            string userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            data.AddWallet(wallet, userid);
         }
     }
 }

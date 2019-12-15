@@ -71,6 +71,7 @@
     <Build Include="dbo\StoredProceudres\spArticles_GetAll.sql" />
     <Build Include="dbo\StoredProceudres\spArticles_AddAritcle.sql" />
     <Build Include="dbo\StoredProceudres\spArticles_ArticleLookUp.sql" />
+    <Build Include="dbo\StoredProceudres\spWallets_WalletsLookUp.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\FinAppDataBase.publish.xml" />
