@@ -24,7 +24,6 @@ namespace FinAppUI.Models
             }
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void CallPropertyChanged(string propertyName)
         {

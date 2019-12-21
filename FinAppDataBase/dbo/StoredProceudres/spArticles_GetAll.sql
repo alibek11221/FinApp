@@ -2,6 +2,6 @@
 AS
 BEGIN
 	SET NOCOUNT ON
-	SELECT ArticleName
+	SELECT ArticleName, Id
 	FROM [dbo].[Articles]
 END

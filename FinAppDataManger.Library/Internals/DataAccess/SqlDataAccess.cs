@@ -29,7 +29,7 @@ namespace FinAppDataManger.Library.Internals.DataAccess
                 return rows;
             }
         }
-        public void SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
+        public void Execute<T>(string storedProcedure, T parameters, string connectionStringName)
         {
             string connectionString = GetConnetcionString(connectionStringName);
             using (IDbConnection connection = new SqlConnection(connectionString))
@@ -37,14 +37,5 @@ namespace FinAppDataManger.Library.Internals.DataAccess
                 connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
             }
         }
-        public void RemoveData<T>(string storedProcedure, T parameters, string connectionStringName)
-        {
-            string connectionString = GetConnetcionString(connectionStringName);
-            using (IDbConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
-            }
-        }
-
     }
 }

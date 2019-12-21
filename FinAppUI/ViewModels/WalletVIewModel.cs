@@ -19,10 +19,10 @@ namespace FinAppUI.ViewModels
         private readonly ILoggedInUserModel _loggedInUser;
         private readonly IWindowManager _manager;
         private readonly TransitionViewModel _transitionVM;
-        private  string _userName;
-        private     WalletDisplayModel _selectedwallet;
-        private  string _currentAmount;
-        private  BindingList<WalletDisplayModel> _wallets;
+        private string _userName;
+        private WalletDisplayModel _selectedwallet;
+        private string _currentAmount;
+        private BindingList<WalletDisplayModel> _wallets;
         public WalletViewModel(IMapper mapper, IWalletEndPoint walletEndPoint
             , ILoggedInUserModel loggedInUser, IWindowManager manager
             , TransitionViewModel transitionVM)
@@ -114,7 +114,8 @@ namespace FinAppUI.ViewModels
         }
         public async Task MakeTransitionAsync()
         {
-          await _manager.ShowDialogAsync(_transitionVM);
+            WalletModel currentWallet = _mapper.Map<WalletModel>(SelectedWallet);
+            await _manager.ShowDialogAsync(_transitionVM);
         }
     }
 }

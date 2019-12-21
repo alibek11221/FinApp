@@ -22,7 +22,7 @@ namespace FinAppDataManger.Library.DataAccess
             p.Add("@WalletName", nameToCheck);
             p.Add("@UserId", userId);
             p.Add("@Out", DbType.Int32, direction: ParameterDirection.Output);
-            dataAccess.LoadData<dynamic, dynamic>("spWallets_WalletsLookUp", p, "FinAppData");
+            dataAccess.Execute("spWallets_WalletsLookUp", p, "FinAppData");
             var retval = p.Get<int>("@Out");
             if (retval == 0)
             {
@@ -39,7 +39,7 @@ namespace FinAppDataManger.Library.DataAccess
             {
                 SqlDataAccess sql = new SqlDataAccess(_config);
                 var p = new { UserId = userId, WalletName = wallet.WalletName, CurrentAmount = wallet.CurrentAmount };
-                sql.SaveData("spWallets_AddWallet", p, "FinAppData");
+                sql.Execute("spWallets_AddWallet", p, "FinAppData");
             }
         }
         public List<WalletModel> GetCurrentUsersWallets(string id)
@@ -53,7 +53,7 @@ namespace FinAppDataManger.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess(_config);
             var p = new { WalletName = wallet.WalletName, UserId = userId };
-            sql.RemoveData("spWallets_RemoweWallet", p, "FinAppData");
+            sql.Execute("spWallets_RemoweWallet", p, "FinAppData");
         }
     }
 }

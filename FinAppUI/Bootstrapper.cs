@@ -44,12 +44,15 @@ namespace FinAppUI
             _container.Instance(ConfigureAutomapper());
             _container.Instance(_container)
                 .PerRequest<IWalletEndPoint, WalletEndPoint>()
-                .PerRequest<IArticleEndPoint, ArticleEndPoint>();
+                .PerRequest<IArticleEndPoint, ArticleEndPoint>()
+                .PerRequest<ITransitionEndPoint, TransitionEndPoint>()
+                .PerRequest<WalletViewModel>();
             _container
                .Singleton<IWindowManager, WindowManager>()
                .Singleton<IEventAggregator, EventAggregator>()
                .Singleton<IAPIHelper, APIHelper>()
                .Singleton<ILoggedInUserModel, LoggedInUserModel>();
+
 
             GetType()
                .Assembly.GetTypes()

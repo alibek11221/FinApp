@@ -73,6 +73,7 @@
     <Build Include="dbo\StoredProceudres\spArticles_ArticleLookUp.sql" />
     <Build Include="dbo\StoredProceudres\spWallets_WalletsLookUp.sql" />
     <Build Include="dbo\StoredProceudres\spWallets_RemoweWallet.sql" />
+    <Build Include="dbo\StoredProceudres\spTransitions_MakeTransitions.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\FinAppDataBase.publish.xml" />

@@ -31,10 +31,8 @@ namespace FinAppUi.Library.Api
         }
         public async Task PostArticle(ArticleModel article)
         {
-
             HttpResponseMessage response = await _aPIHelper.ApiClient.PostAsJsonAsync("api/Article", article);
             response.Dispose();
-
-        } 
+        }
     }
 }

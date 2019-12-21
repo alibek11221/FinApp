@@ -24,6 +24,16 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="0"  Text="Выебрите Кошелек" VerticalAlignment="Center"/>
+        <ComboBox x:Name="Wallets" Grid.Row="0" Grid.Column="2" 
+                 Margin="10" MinWidth="200"
+                 SelectedItem="{Binding SelectedWallet}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding WalletName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <TextBlock Grid.Column="1" Grid.Row="1"  Text="Выебрите статью" VerticalAlignment="Center"/>
         <ComboBox x:Name="Articles" Grid.Row="1" Grid.Column="2" 
                  Margin="10" MinWidth="200"
@@ -39,7 +49,9 @@
         </TextBox>
         <TextBlock Text="Выберите дату транзакции" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
         <DatePicker Grid.Row="3" Grid.Column="2" x:Name="TransitionDate" Margin="10"/>
+        <RadioButton Grid.Row="4" Grid.Column="2"  x:Name="IncomeChecked" Content="Доход" HorizontalAlignment="Right" Margin="10 5"/>
+        <RadioButton Grid.Row="4" Grid.Column="2" x:Name="OutcomeChecked" Content="Расход" HorizontalAlignment="Left" Margin="10 5"/>
         <Button x:Name="MakeTransition" Content="Провести операцию" 
-                Grid.Column="2" Grid.Row="4" Margin="10"/>
+                Grid.Column="2" Grid.Row="5" Margin="10"/>
     </Grid>
 </Window>

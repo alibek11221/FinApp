@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FinAppUi.Library.Models
 {
-    public class WalletModel
+    public class WalletModel : IWalletModel
     {
         public int Id { get; set; }
         public string WalletName { get; set; }

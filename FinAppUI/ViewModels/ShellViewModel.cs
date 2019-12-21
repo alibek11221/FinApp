@@ -62,8 +62,8 @@ namespace FinAppUI.ViewModels
         }
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(IoC.Get<WalletViewModel>(), cancellationToken);
             NotifyOfPropertyChange(() => IsLoggedIn);
+            await ActivateItemAsync(IoC.Get<WalletViewModel>(), cancellationToken);
         }
     }
 }

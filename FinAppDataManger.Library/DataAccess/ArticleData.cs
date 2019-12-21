@@ -28,7 +28,7 @@ namespace FinAppDataManger.Library.DataAccess
         {
             if (ArticleDoesNotExist(article.ArticleName))
             {
-                _sql.SaveData("spArticles_AddAritcle", article, "FinAppData");
+                _sql.Execute("spArticles_AddAritcle", article, "FinAppData");
                 return true;
             }
             else

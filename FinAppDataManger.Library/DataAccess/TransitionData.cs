@@ -20,5 +20,19 @@ namespace FinAppDataManger.Library.DataAccess
             var outuput = sql.LoadData<TransitionModel, dynamic>("spTransitionsGetByWallet", p, "FinAppData");
             return outuput;
         }
+        public void MakeTransition(TransitionModel transition, string userId)
+        {
+            SqlDataAccess sql = new SqlDataAccess(_config);
+            var p = new
+            {
+                UserId = userId,
+                WalletId = transition.Wallet.Id,
+                TransitionAmount = transition.Amount,
+                TransitionDate = transition.TransitionDate,
+                TransitionType = transition.TransitionType,
+                ArticleId = transition.Article.Id
+            };
+            sql.Execute("spTransitions_MakeTransitions", p, "FinAppData");
+        }
     }
 }
